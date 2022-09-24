@@ -9,7 +9,7 @@ app = Flask(__name__)
 @app.route('/<string:ap>')
 def hello(ap: str):
 
-    URL = 'https://www.aviationweather.gov/metar/data?ids=ktme&format=decoded&hours=0&taf=off&layout=on'.format(ap)
+    URL = 'https://www.aviationweather.gov/metar/data?ids={}&format=decoded&hours=0&taf=off&layout=on'.format(ap)
     page = requests.get(URL)
     soup = BeautifulSoup(page.content,"html.parser")
     #result = soup.find(id="awc_main_content_wrap")
